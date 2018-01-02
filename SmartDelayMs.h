@@ -14,9 +14,9 @@ class SmartDelayMs: public SmartDelay {
     SmartDelayMs(){};
     SmartDelayMs(const SmartDelayMs& rhs);
     SmartDelayMs& operator= (const SmartDelayMs& rhs);
-    SmartDelayMs(unsigned long tick) : SmartDelay(tick * 1000UL)
+    SmartDelayMs(unsigned long tick) : SmartDelay(tick * 1000UL) {};
 
-    unsigned long Set(unsigned long tick) {return SmartDelay::Set(tick * 1000UL); }
+    unsigned long Set(unsigned long tick) { return SmartDelay::Set(tick * 1000UL); };
 };
 
 #define SMART_DELAY_MS_PROCESSES(name, ...) SmartDelayMS *name[]={__VA_ARGS__}
@@ -28,8 +28,8 @@ class coopTaskMs {
     SmartDelayMs **p;
     unsigned int count;
   public:
-    coopTask() {};
-    coopTask(SmartDelayMs **arr, unsigned int c) {
+    coopTaskMs() {};
+    coopTaskMs(SmartDelayMs **arr, unsigned int c) {
       p = arr;
       count=c;
     }
